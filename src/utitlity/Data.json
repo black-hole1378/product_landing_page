@@ -1,3 +1,12 @@
 {
-  "sidebar": ["/images/bg-sidebar-mobile.svg", "/images/bg-sidebar-desktop.svg"]
+  "menu_item": {
+    "menus": ["Collections", "Men", "Women", "About", "Contact"],
+    "address": [
+      "../pages/Collection.tsx",
+      "../pages/Men.tsx",
+      "../pages/Women.tsx",
+      "../pages/About.tsx",
+      "../pages/Contact.tsx"
+    ]
+  }
 }
