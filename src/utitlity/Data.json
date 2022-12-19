@@ -1,12 +1,6 @@
 {
   "menu_item": {
     "menus": ["Collections", "Men", "Women", "About", "Contact"],
-    "address": [
-      "../pages/Collection.tsx",
-      "../pages/Men.tsx",
-      "../pages/Women.tsx",
-      "../pages/About.tsx",
-      "../pages/Contact.tsx"
-    ]
+    "address": ["/collections", "/men", "/women", "/about", "/contact"]
   }
 }
