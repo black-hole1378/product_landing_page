@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, styled } from "@mui/material";
 import Link from "next/link";
 import Data from "../../utitlity/Data.json";
-const LinkWrapper = styled(Link)`
+export const LinkWrapper = styled(Link)`
   padding: 5px;
   text-decoration: none;
   color: hsl(219, 9%, 45%);
