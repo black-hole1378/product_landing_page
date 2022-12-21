@@ -6,7 +6,8 @@ import {
   selectImageState,
   changeIndex,
 } from "../../utitlity/store/imagestore/imageSlice";
-const ImageWrapper = styled("img")`
+
+export const ImageWrapperSlide = styled("img")`
   width: 100%;
   height: 100px;
   border-radius: 5px;
@@ -14,7 +15,7 @@ const ImageWrapper = styled("img")`
 
 const images = Data.product.images.thumbnail;
 
-const SelectedImageWrapper = styled(ImageWrapper)`
+export const SelectedImageWrapper = styled(ImageWrapperSlide)`
   opacity: 0.5;
 `;
 
@@ -35,7 +36,7 @@ export const ImageSlider: NextPage = () => {
                       alt={imageError}
                     />
                   ) : (
-                    <ImageWrapper src={image} alt={imageError} />
+                    <ImageWrapperSlide src={image} alt={imageError} />
                   )}
                 </ButtonBase>
               </Grid>
