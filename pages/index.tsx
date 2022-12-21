@@ -7,7 +7,7 @@ const Home: NextPage = () => {
     <div className={style.container}>
       <Paper sx={{ width: "100%", height: "100%" }}>
         <Grid spacing={3} container>
-          <Grid item md={6} xl={6}>
+          <Grid item md={6} xl={5}>
             <ImageContainer />
           </Grid>
           <Grid item md={6} xl={6}>

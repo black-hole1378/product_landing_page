@@ -13,7 +13,7 @@ export const imageSlice = createSlice({
   initialState,
   reducers: {
     changeIndex(state, action: PayloadAction<number>) {
-      state.index += action.payload;
+      state.index = action.payload;
     },
   },
 });
