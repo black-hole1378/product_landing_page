@@ -24,7 +24,10 @@ export const ImageSlider: NextPage = () => {
   const dispatch = useDispatch();
   const imageError = "Not supported!";
   return (
-    <Box sx={{ width: "100%", height: "max-content" }}>
+    <Box
+      display={{ xs: "none", md: "block" }}
+      sx={{ width: "100%", height: "max-content" }}
+    >
       <Grid ml={1} container spacing={1.4}>
         {images
           ? images.map((image, index) => (

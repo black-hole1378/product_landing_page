@@ -3,11 +3,16 @@ import { useState } from "react";
 import { Box, Stack, styled, Button, ButtonBase } from "@mui/material";
 import Data from "../../utitlity/Data.json";
 import { wrapper } from "../../utitlity/store/imagestore/imageStore";
-import { selectImageState } from "../../utitlity/store/imagestore/imageSlice";
+import {
+  changeIndex,
+  selectImageState,
+} from "../../utitlity/store/imagestore/imageSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { ImageSlider } from "./ImageSlider";
 import ImageDialog from "./ImageDialog";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
+import style from "../../../styles/swiper.module.css";
 export const ImageWrapper = styled("img")`
   width: 100%;
   height: 380px;
@@ -27,12 +32,35 @@ const ImageContainer: NextPage = () => {
     console.log("Hello");
   };
 
+  const handleClick = () => {
+    console.log(index);
+    dispatch(changeIndex(index + 1));
+  };
+
   return (
-    <Box mt={-3}>
-      <Stack spacing={5}>
-        <ButtonBase onClick={handleDialog}>
+    <Box>
+      <Stack spacing={4}>
+        <ButtonBase
+          sx={{ display: { xs: "none", md: "block" } }}
+          onClick={handleDialog}
+        >
           <ImageWrapper src={images[index]} alt="Not supported" />
         </ButtonBase>
+        <Swiper
+          className={style.swiperContainer}
+          modules={[Navigation]}
+          navigation
+          onSlideChange={() => dispatch(changeIndex(index + 1))}
+          slidesPerView={1}
+        >
+          {images
+            ? images.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <ImageWrapper src={image} alt="" />
+                </SwiperSlide>
+              ))
+            : null}
+        </Swiper>
         <ImageSlider />
         <ImageDialog
           index={index}

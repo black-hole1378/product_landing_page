@@ -3,7 +3,6 @@ import HeadElement from "../src/component/Header/Head";
 const About: NextPage = () => {
   return (
     <div>
-      <HeadElement />
       <main>Hello Collection</main>
     </div>
   );

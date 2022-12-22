@@ -9,8 +9,8 @@ import {
   Box,
   Divider,
 } from "@mui/material";
-import { CounterProps, MenuControler } from "./MenuControler";
-function ShoppingCart(props: CounterProps) {
+import { MenuProps, MenuControler } from "./MenuControler";
+function ShoppingCart(props: MenuProps) {
   const isEmpty = true;
 
   return (
@@ -34,7 +34,6 @@ function ShoppingCart(props: CounterProps) {
         MenuListProps={{
           "aria-labelledby": "cart-button",
         }}
-        sx={{}}
       >
         <Box
           display={"flex"}

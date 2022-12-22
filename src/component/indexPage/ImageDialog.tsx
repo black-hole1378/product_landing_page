@@ -28,7 +28,6 @@ const PaperWrapper = styled(Paper)(({ theme }) => ({
   minHeight: "560px",
   overflowX: "visible",
   padding: "4px",
-  backgroundColor: [theme.palette.mode],
   [theme.breakpoints.down("sm")]: {
     display: "none",
   },
