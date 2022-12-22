@@ -6,9 +6,11 @@ import {
   Typography,
   Grid,
   IconButton,
+  Button,
 } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const ContentContainerWrapper = styled(Box)`
   width: 100%;
   height: max-content;
@@ -65,7 +67,7 @@ const ContentContainer: NextPage = () => {
             $250.00
           </Typography>
         </Stack>
-        <Grid container>
+        <Grid container sx={{ alignItems: "center" }} columnSpacing={2}>
           <ContainerWrapper item md={4} sm={12} container>
             <Grid item>
               <IconButton color="warning">
@@ -83,7 +85,15 @@ const ContentContainer: NextPage = () => {
               </IconButton>
             </Grid>
           </ContainerWrapper>
-          <Grid item md={8} sm={12}></Grid>
+          <Grid item mt={{ xs: "14px" }} md={6} xs={12}>
+            <Button
+              variant="contained"
+              sx={{ fontSize: "12px", fontWeight: "bolder", width: "100%" }}
+              color="warning"
+            >
+              <ShoppingCartIcon fontSize="small" /> &nbsp; Add to Card
+            </Button>
+          </Grid>
         </Grid>
       </Stack>
     </ContentContainerWrapper>
