@@ -1,14 +1,25 @@
 import { NextPage } from "next";
-import { Box, Stack, styled, Typography } from "@mui/material";
-
+import {
+  Box,
+  Stack,
+  styled,
+  Typography,
+  Grid,
+  IconButton,
+} from "@mui/material";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
 const ContentContainerWrapper = styled(Box)`
   width: 100%;
   height: max-content;
   padding: 2rem;
+`;
 
-  @media screen and(max-width: 700px) {
-    font-size: 0.5rem;
-  }
+const ContainerWrapper = styled(Grid)`
+  border-radius: 5px;
+  background-color: hsl(223, 64%, 98%);
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const HeadingWrappper = styled(Typography)`
@@ -54,6 +65,26 @@ const ContentContainer: NextPage = () => {
             $250.00
           </Typography>
         </Stack>
+        <Grid container>
+          <ContainerWrapper item md={4} sm={12} container>
+            <Grid item>
+              <IconButton color="warning">
+                <RemoveIcon />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <Typography variant="subtitle2" color={"text.primary"}>
+                2
+              </Typography>
+            </Grid>
+            <Grid item>
+              <IconButton color="warning">
+                <AddIcon />
+              </IconButton>
+            </Grid>
+          </ContainerWrapper>
+          <Grid item md={8} sm={12}></Grid>
+        </Grid>
       </Stack>
     </ContentContainerWrapper>
   );
