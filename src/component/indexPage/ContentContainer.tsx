@@ -85,7 +85,7 @@ const ContentContainer: NextPage = () => {
               </IconButton>
             </Grid>
           </ContainerWrapper>
-          <Grid item mt={{ xs: "14px" }} md={6} xs={12}>
+          <Grid item mt={{ xs: "14px", md: "0px" }} md={6} xs={12}>
             <Button
               variant="contained"
               sx={{ fontSize: "12px", fontWeight: "bolder", width: "100%" }}
