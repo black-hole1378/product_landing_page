@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { AppState } from "./ProductStore";
-interface Product {
+export interface Product {
   name: string;
   edition: string;
   quantity: number;
@@ -11,12 +11,12 @@ interface Product {
 
 interface Products {
   products: Product[];
-  index: number;
+  product_index: number;
 }
 
 const initialState: Products = {
   products: [],
-  index: 0,
+  product_index: 0,
 };
 
 const ProductSlice = createSlice({
@@ -25,7 +25,8 @@ const ProductSlice = createSlice({
   reducers: {
     addProduct(state, action: PayloadAction<Product>) {
       state.products.push(action.payload);
-      state.index++;
+      state.product_index++;
+      console.log(action.payload);
     },
     removeProduct(state, action: PayloadAction<number>) {
       state.products.splice(action.payload);
@@ -35,4 +36,4 @@ const ProductSlice = createSlice({
 
 export const Productreducer = ProductSlice.reducer;
 export const { addProduct } = ProductSlice.actions;
-export const index = (state: AppState) => state.index;
+export const index = (state: AppState) => state.product_index;
