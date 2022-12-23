@@ -1,11 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-
+import { AppState } from "./ProductStore";
 interface Product {
   name: string;
+  edition: string;
   quantity: number;
   image: string[];
   mainPrice: number;
-  discount: number;
+  discount: string;
 }
 
 interface Products {
@@ -34,3 +35,4 @@ const ProductSlice = createSlice({
 
 export const Productreducer = ProductSlice.reducer;
 export const { addProduct } = ProductSlice.actions;
+export const index = (state: AppState) => state.index;

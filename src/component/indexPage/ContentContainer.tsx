@@ -1,27 +1,10 @@
 import { NextPage } from "next";
-import {
-  Box,
-  Stack,
-  styled,
-  Typography,
-  Grid,
-  IconButton,
-  Button,
-} from "@mui/material";
-import RemoveIcon from "@mui/icons-material/Remove";
-import AddIcon from "@mui/icons-material/Add";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Box, Stack, styled, Typography } from "@mui/material";
+import { ProductContainer } from "./ProductContainer";
 const ContentContainerWrapper = styled(Box)`
   width: 100%;
   height: max-content;
   padding: 2rem;
-`;
-
-const ContainerWrapper = styled(Grid)`
-  border-radius: 5px;
-  background-color: hsl(223, 64%, 98%);
-  align-items: center;
-  justify-content: space-between;
 `;
 
 const HeadingWrappper = styled(Typography)`
@@ -67,34 +50,7 @@ const ContentContainer: NextPage = () => {
             $250.00
           </Typography>
         </Stack>
-        <Grid container sx={{ alignItems: "center" }} columnSpacing={2}>
-          <ContainerWrapper item md={4} sm={12} container>
-            <Grid item>
-              <IconButton color="warning">
-                <RemoveIcon />
-              </IconButton>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle2" color={"text.primary"}>
-                2
-              </Typography>
-            </Grid>
-            <Grid item>
-              <IconButton color="warning">
-                <AddIcon />
-              </IconButton>
-            </Grid>
-          </ContainerWrapper>
-          <Grid item mt={{ xs: "14px", md: "0px" }} md={6} xs={12}>
-            <Button
-              variant="contained"
-              sx={{ fontSize: "12px", fontWeight: "bolder", width: "100%" }}
-              color="warning"
-            >
-              <ShoppingCartIcon fontSize="small" /> &nbsp; Add to Card
-            </Button>
-          </Grid>
-        </Grid>
+        <ProductContainer />
       </Stack>
     </ContentContainerWrapper>
   );

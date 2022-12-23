@@ -18,6 +18,15 @@
         "images/image-product-4-thumbnail.jpg"
       ]
     },
-    "content": []
+    "content": [
+      {
+        "name": "SNEAKERS COMPANY",
+        "edition": "Fall Limited Edition",
+        "images": [],
+        "quantity": 0,
+        "mainPrice": 250.0,
+        "discount": "50%"
+      }
+    ]
   }
 }
