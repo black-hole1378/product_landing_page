@@ -53,6 +53,7 @@ const SelectedImageSlideWrapper = styled(ImageSlideWrapper)`
 export default function ImageDialog(props: Props) {
   const [isOpen, setOpen] = React.useState<boolean>(props.open);
   const [selected, setSelected] = React.useState(props.index);
+  console.log("hello", props.index);
   return (
     <Dialog open={props.open} onClose={() => setOpen(false)}>
       <PaperWrapper>

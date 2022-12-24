@@ -1,11 +1,6 @@
-import { NextPage } from "next";
+import React from "react";
 import { Box, styled, Grid, ButtonBase } from "@mui/material";
-import Data from "../../utitlity/Data.json";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  selectImageState,
-  changeIndex,
-} from "../../utitlity/store/imagestore/imageSlice";
+import { ImageProps } from "./ImageContainerWrapper";
 
 export const ImageWrapperSlide = styled("img")`
   width: 100%;
@@ -13,15 +8,13 @@ export const ImageWrapperSlide = styled("img")`
   border-radius: 5px;
 `;
 
-const images = Data.product.images.thumbnail;
-
 export const SelectedImageWrapper = styled(ImageWrapperSlide)`
   opacity: 0.5;
 `;
 
-export const ImageSlider: NextPage = () => {
-  const selectedIndex = useSelector(selectImageState);
-  const dispatch = useDispatch();
+export const ImageSlider = (props: ImageProps) => {
+  const { index, thumbnails, handleChange } = props;
+
   const imageError = "Not supported!";
   return (
     <Box
@@ -29,15 +22,12 @@ export const ImageSlider: NextPage = () => {
       sx={{ width: "100%", height: "max-content" }}
     >
       <Grid ml={1} container spacing={1.4}>
-        {images
-          ? images.map((image, index) => (
-              <Grid key={index} md={3}>
-                <ButtonBase onClick={() => dispatch(changeIndex(index))}>
-                  {index === selectedIndex ? (
-                    <SelectedImageWrapper
-                      src={images[selectedIndex]}
-                      alt={imageError}
-                    />
+        {thumbnails
+          ? thumbnails.map((image, i) => (
+              <Grid key={i} md={3}>
+                <ButtonBase onClick={() => handleChange(i)}>
+                  {index === i ? (
+                    <SelectedImageWrapper src={image} alt={imageError} />
                   ) : (
                     <ImageWrapperSlide src={image} alt={imageError} />
                   )}

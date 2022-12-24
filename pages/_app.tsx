@@ -4,7 +4,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Header from "../src/component/Header/Header";
 import "swiper/css";
 import "swiper/css/navigation";
-import { NextPage } from "next";
 import { wrapper } from "../src/utitlity/store/productstore/ProductStore";
 const App = ({ Component, pageProps }: AppProps) => {
   return (

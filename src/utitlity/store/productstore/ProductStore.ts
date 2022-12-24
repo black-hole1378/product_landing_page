@@ -5,7 +5,6 @@ import { Productreducer } from "./ProductSlice";
 const makeStore = () =>
   configureStore({
     reducer: Productreducer,
-    devTools: true,
   });
 
 export type AppStore = ReturnType<typeof makeStore>;
