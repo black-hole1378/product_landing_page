@@ -13,6 +13,7 @@ import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { ImageWrapper } from "./ImageContainer";
 import { ImageProps } from "./ImageContainerWrapper";
+import { useState } from "react";
 
 const PaperWrapper = styled(Paper)(({ theme }) => ({
   width: "max-content",
@@ -50,11 +51,9 @@ interface Props extends ImageProps {
 }
 
 export default function ImageDialog(props: Props) {
-  const { open, index, handleChange, handleDialog, selectedImage, thumbnails } =
-    props;
+  const { open, index, handleDialog, selectedImage, thumbnails } = props;
   const [isOpen, setOpen] = React.useState<boolean>(open);
-  const [selected, setSelected] = React.useState(index);
-  console.log("hello", props.index);
+  const [selected, setSelected] = useState<number>(index);
   return (
     <Dialog open={open} onClose={() => setOpen(false)}>
       <PaperWrapper>
@@ -64,7 +63,7 @@ export default function ImageDialog(props: Props) {
               <CloseIcon />
             </CloseIconWrapper>
           </Box>
-          <ImageWrapper src={selectedImage[index]} alt="" />
+          <ImageWrapper src={selectedImage[selected]} alt={""} />
           <Container>
             <Grid container>
               {thumbnails

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Stack, styled, ButtonBase } from "@mui/material";
 import ImageDialog from "./ImageDialog";
-import { ImageSlider } from "./ImageSlider";
+import { ImageSlider, SelectedImageWrapper } from "./ImageSlider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import style from "../../../styles/swiper.module.css";
@@ -45,13 +45,7 @@ const ImageContainer = (props: ImageProps) => {
             : null}
         </Swiper>
         <ImageSlider {...props} />
-        <ImageDialog
-          index={index}
-          thumbleImage={thumbnails}
-          open={open}
-          selectedImages={selectedImage}
-          handleDialog={handleDialog}
-        />
+        <ImageDialog open={open} handleDialog={handleDialog} {...props} />
       </Stack>
     </Box>
   );
