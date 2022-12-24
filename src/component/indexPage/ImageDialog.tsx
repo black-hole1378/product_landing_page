@@ -12,13 +12,7 @@ import {
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { ImageWrapper } from "./ImageContainer";
-interface Props {
-  open: boolean;
-  index: number;
-  selectedImages: string[];
-  thumbleImage: string[];
-  handleDialog: any;
-}
+import { ImageProps } from "./ImageContainerWrapper";
 
 const PaperWrapper = styled(Paper)(({ theme }) => ({
   width: "max-content",
@@ -50,27 +44,34 @@ const SelectedImageSlideWrapper = styled(ImageSlideWrapper)`
   opacity: 0.5;
 `;
 
+interface Props extends ImageProps {
+  open: boolean;
+  handleDialog: any;
+}
+
 export default function ImageDialog(props: Props) {
-  const [isOpen, setOpen] = React.useState<boolean>(props.open);
-  const [selected, setSelected] = React.useState(props.index);
+  const { open, index, handleChange, handleDialog, selectedImage, thumbnails } =
+    props;
+  const [isOpen, setOpen] = React.useState<boolean>(open);
+  const [selected, setSelected] = React.useState(index);
   console.log("hello", props.index);
   return (
-    <Dialog open={props.open} onClose={() => setOpen(false)}>
+    <Dialog open={open} onClose={() => setOpen(false)}>
       <PaperWrapper>
         <Stack spacing={1}>
           <Box display="flex" justifyContent={"end"}>
-            <CloseIconWrapper onClick={() => props.handleDialog()}>
+            <CloseIconWrapper onClick={() => handleDialog()}>
               <CloseIcon />
             </CloseIconWrapper>
           </Box>
-          <ImageWrapper src={props.selectedImages[selected]} alt="" />
+          <ImageWrapper src={selectedImage[index]} alt="" />
           <Container>
             <Grid container>
-              {props.thumbleImage
-                ? props.thumbleImage.map((image, index) => (
-                    <Grid key={index} md={2}>
-                      <ButtonBase onClick={() => setSelected(index)}>
-                        {index === selected ? (
+              {thumbnails
+                ? thumbnails.map((image, i) => (
+                    <Grid key={i} md={2}>
+                      <ButtonBase onClick={() => setSelected(i)}>
+                        {i === selected ? (
                           <SelectedImageSlideWrapper src={image} alt="Image" />
                         ) : (
                           <ImageSlideWrapper src={image} alt="Image" />
