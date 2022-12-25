@@ -19,7 +19,7 @@ const ContainerWrapper = styled(Grid)`
 
 export const ProductContainer = () => {
   const [quantity, setQunatity] = useState<number>(0);
-  
+
   const dispatch = useDispatch();
   const addtoCard = () => {
     if (quantity >= 1) {

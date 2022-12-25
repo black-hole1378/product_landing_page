@@ -1,19 +1,11 @@
-import {
-  Dialog,
-  Paper,
-  styled,
-  IconButton,
-  Stack,
-  Box,
-  Grid,
-  ButtonBase,
-  Container,
-} from "@mui/material";
+import { Dialog, Paper, styled, IconButton, Stack, Box } from "@mui/material";
 import React from "react";
+import { Thumbnails } from "./thumbnails";
 import CloseIcon from "@mui/icons-material/Close";
-import { ImageWrapper } from "./ImageContainer";
-import { ImageProps } from "./ImageContainerWrapper";
 import { useState } from "react";
+import ImageContainerWrapper from "./ImageContainer";
+import { ImageProps } from "./ImageContainerWrapper";
+import { ImageWrap } from "./image";
 
 const PaperWrapper = styled(Paper)(({ theme }) => ({
   width: "max-content",
@@ -35,25 +27,16 @@ const CloseIconWrapper = styled(IconButton)`
   margin: 10px;
 `;
 
-const ImageSlideWrapper = styled("img")`
-  width: 100%;
-  height: 60px;
-  border-radius: 5px;
-`;
-
-const SelectedImageSlideWrapper = styled(ImageSlideWrapper)`
-  opacity: 0.5;
-`;
-
-interface Props extends ImageProps {
-  open: boolean;
+interface DialogProps extends ImageProps {
   handleDialog: any;
+  open: boolean;
 }
 
-export default function ImageDialog(props: Props) {
+const ImageDialog = (props: DialogProps) => {
   const { open, index, handleDialog, selectedImage, thumbnails } = props;
   const [isOpen, setOpen] = React.useState<boolean>(open);
   const [selected, setSelected] = useState<number>(index);
+
   return (
     <Dialog open={open} onClose={() => setOpen(false)}>
       <PaperWrapper>
@@ -63,26 +46,16 @@ export default function ImageDialog(props: Props) {
               <CloseIcon />
             </CloseIconWrapper>
           </Box>
-          <ImageWrapper src={selectedImage[selected]} alt={""} />
-          <Container>
-            <Grid container>
-              {thumbnails
-                ? thumbnails.map((image, i) => (
-                    <Grid key={i} md={2}>
-                      <ButtonBase onClick={() => setSelected(i)}>
-                        {i === selected ? (
-                          <SelectedImageSlideWrapper src={image} alt="Image" />
-                        ) : (
-                          <ImageSlideWrapper src={image} alt="Image" />
-                        )}
-                      </ButtonBase>
-                    </Grid>
-                  ))
-                : null}
-            </Grid>
-          </Container>
+          <ImageWrap url={selectedImage[selected]} />
+          <Thumbnails
+            handleChange={setSelected}
+            selected={selected}
+            thumbnails={thumbnails}
+          />
         </Stack>
       </PaperWrapper>
     </Dialog>
   );
-}
+};
+
+export default ImageDialog;
