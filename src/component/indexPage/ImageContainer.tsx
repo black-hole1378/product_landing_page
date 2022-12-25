@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Stack, styled, ButtonBase } from "@mui/material";
 import ImageDialog from "./ImageDialog";
-import { ImageSlider, SelectedImageWrapper } from "./ImageSlider";
+import { ImageSlider } from "./ImageSlider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import style from "../../../styles/swiper.module.css";
