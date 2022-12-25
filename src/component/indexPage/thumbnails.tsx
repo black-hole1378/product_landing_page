@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, ButtonBase } from "@mui/material";
+import { Container, Grid, Box, ButtonBase } from "@mui/material";
 import { ThumbnailsImage } from "./thumbnailImage";
 interface Props {
   selected: number;
@@ -11,10 +11,10 @@ export const Thumbnails = (props: Props) => {
   const { selected, handleChange, thumbnails } = props;
   return (
     <Container>
-      <Grid spacing={2} container>
+      <Grid container spacing={2}>
         {thumbnails
           ? thumbnails.map((image, i) => (
-              <Grid key={i} md={2}>
+              <Grid key={i} md={3}>
                 <ButtonBase onClick={() => handleChange(i)}>
                   {i === selected ? (
                     <ThumbnailsImage url={image} selected={true} />

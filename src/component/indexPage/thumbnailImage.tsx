@@ -3,7 +3,7 @@ import { ImageError, ImageProp } from "./image";
 
 export const ThumbnailImage = styled("img")`
   width: 100%;
-  height: 100px;
+  height: 80px;
   border-radius: 5px;
 `;
 

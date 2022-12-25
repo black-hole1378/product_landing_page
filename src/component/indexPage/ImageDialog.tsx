@@ -3,7 +3,6 @@ import React from "react";
 import { Thumbnails } from "./thumbnails";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
-import ImageContainerWrapper from "./ImageContainer";
 import { ImageProps } from "./ImageContainerWrapper";
 import { ImageWrap } from "./image";
 
@@ -40,7 +39,7 @@ const ImageDialog = (props: DialogProps) => {
   return (
     <Dialog open={open} onClose={() => setOpen(false)}>
       <PaperWrapper>
-        <Stack spacing={1}>
+        <Stack spacing={3}>
           <Box display="flex" justifyContent={"end"}>
             <CloseIconWrapper onClick={() => handleDialog()}>
               <CloseIcon />
